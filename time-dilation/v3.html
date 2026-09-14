@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07101f">
+<title>How Can Time Move Differently?</title>
+<style>
+:root{--bg:#07101f;--panel:#0d1830;--panel2:#091426;--ink:#f7f9ff;--muted:#a9b8d1;--line:#263858;--accent:#7bddff;--green:#b9ffd0;--warm:#ffd37d;--purple:#c9b8ff;--shadow:0 20px 60px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 12% 5%,rgba(66,119,255,.16),transparent 27%),radial-gradient(circle at 88% 18%,rgba(123,221,255,.08),transparent 25%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.wrap{width:min(1040px,calc(100% - 32px));margin:auto}.brand{padding:18px 0;font-weight:850}.dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent);margin-right:9px}.hero{padding:32px 0 26px;max-width:900px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--accent);font-weight:850}h1{font-size:clamp(42px,7vw,78px);line-height:.98;letter-spacing:-.045em;margin:12px 0 20px}h2{font-size:clamp(32px,4.5vw,52px);line-height:1.05;letter-spacing:-.035em;margin:8px 0 12px}h3{font-size:24px;line-height:1.15;margin:0 0 8px}.hero p,.lead{font-size:clamp(18px,2.1vw,22px);color:var(--muted);margin:0}.hero strong,.lead strong{color:var(--ink)}.answer{margin-top:24px;padding:18px 20px;border:1px solid #315071;border-radius:18px;background:linear-gradient(180deg,#11233e,#0d1b31);font-size:18px}.answer b{color:var(--warm)}.section{padding:36px 0 50px}.section-head{max-width:830px;margin-bottom:20px}.panel{background:linear-gradient(180deg,rgba(17,29,52,.98),rgba(10,19,36,.98));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}.card{padding:22px}.muted{color:var(--muted)}
+.question{padding:20px;border:1px solid #314567;border-radius:18px;background:#10203a;margin-bottom:18px}.question .q{font-size:21px;font-weight:850;margin-bottom:8px}.question p{margin:0;color:var(--muted)}.question strong{color:var(--ink)}
+.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.now-card{padding:20px;background:var(--panel2);border:1px solid var(--line);border-radius:18px}.now-card b{display:block;font-size:18px;margin-bottom:6px}.now-card p{margin:0;color:var(--muted)}.now-card.accent{border-color:#35617d}.now-card.purple{border-color:#50456f}
+.sim-panel{padding:22px}.sim-top{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:end}.control{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:16px}.control label{display:flex;justify-content:space-between;gap:12px;font-weight:820;margin-bottom:8px}.control label span{color:var(--accent);font-variant-numeric:tabular-nums}input[type=range]{width:100%;height:38px;background:transparent;accent-color:var(--accent);touch-action:pan-y}input[type=range]::-webkit-slider-runnable-track{height:8px;background:#213859;border-radius:999px}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-11px;border-radius:50%;background:#f7f9ff;border:4px solid var(--accent);box-shadow:0 3px 14px rgba(0,0,0,.35)}.tiny{font-size:13px;color:var(--muted);margin-top:7px}.sim-summary{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:16px}.sim-summary span{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:760}.sim-summary b{display:block;font-size:24px;color:var(--purple);margin-top:4px}.svgbox{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:18px;background:#07101f;margin-top:16px}.caption{margin-top:12px;padding:15px 17px;background:#11203a;border:1px solid #314567;border-radius:16px;color:#dce7f6}.caption b{color:var(--warm)}
+.clock-panel{padding:22px}.clock-top{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:end;margin-bottom:14px}.readout{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:15px}.readout span{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.07em;font-weight:760}.readout b{display:block;font-size:24px;color:var(--green);margin-top:4px}.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.chain-item{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:15px}.chain-item:not(:last-child):after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--accent);font-weight:900;z-index:2}.chain-item strong{display:block;margin-bottom:4px}.chain-item span{font-size:13px;color:var(--muted)}
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.process{padding:20px}.process-row{display:grid;grid-template-columns:110px 1fr 62px;gap:10px;align-items:center;margin-top:12px}.process-label{font-size:14px;font-weight:760}.track{height:13px;border-radius:999px;background:#182741;overflow:hidden}.fill{height:100%;background:var(--accent);border-radius:999px}.fill.trav{background:var(--green)}.num{text-align:right;font-size:13px;font-weight:820}.callout{margin-top:15px;padding:15px 17px;background:var(--panel2);border:1px solid var(--line);border-radius:16px;color:var(--muted)}.callout b{color:var(--ink)}
+.reunion{padding:22px}.reunion-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center}.ticks{display:grid;gap:10px}.tickrow{display:grid;grid-template-columns:90px 1fr 72px;gap:10px;align-items:center}.tickbar{height:14px;background:#182741;border-radius:999px;overflow:hidden}.tickfill{height:100%;background:var(--accent);border-radius:999px}.tickfill.trav{background:var(--green)}.ticknum{text-align:right;font-weight:820}.faq details{border:1px solid var(--line);background:var(--panel2);border-radius:16px;padding:16px 18px}.faq details+details{margin-top:10px}.faq summary{font-weight:820;cursor:pointer}.faq p{color:var(--muted);margin:10px 0 0}.equation{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#07101f;border:1px solid var(--line);border-radius:16px;padding:17px;margin-top:14px;overflow:auto}.footer{padding:30px 0 50px;color:var(--muted);font-size:14px}
+@media(max-width:800px){.wrap{width:min(100% - 24px,1040px)}.hero{padding-top:24px}.hero h1{font-size:44px}.section{padding-top:26px}.section h2{font-size:36px}.now-grid,.process-grid,.reunion-grid{grid-template-columns:1fr}.sim-top,.clock-top{grid-template-columns:1fr}.chain{grid-template-columns:1fr}.chain-item:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-21px;transform:translateX(-50%)}.sim-panel,.clock-panel,.reunion{padding:14px}.process-row{grid-template-columns:96px 1fr 55px}}
+@media(max-width:500px){.process-row{grid-template-columns:1fr;gap:5px}.num{text-align:left}.answer{font-size:16px}.svgbox text{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><span class="dot"></span>How Can Time Move Differently?</div>
+<header class="hero">
+<div class="eyebrow">The actual question</div>
+<h1>“Time is time. Why wouldn’t your second equal my second?”</h1>
+<p>You already know the usual claim: move very fast and you can age less. The hard part is <strong>how that can possibly make sense</strong> if both people are living through reality at the same time.</p>
+<div class="answer"><b>The answer:</b> there is no single universal clock running behind the universe, and there is no universal “right now” shared by distant observers. Each person measures time along their own path through spacetime. Motion changes how those paths relate, so equal-looking “seconds” do not have to add up to the same total when the people reunite.</div>
+</header>
+
+<section class="section">
+<div class="section-head"><div class="eyebrow">01 · First break the everyday assumption</div><h2>There is no master “now.”</h2><p class="lead">This is the piece that usually makes time dilation feel impossible. In everyday life we act as if the whole universe shares one present moment. Relativity says it does not.</p></div>
+<div class="question"><div class="q">“But if we are both alive right now, aren’t we both in the same moment?”</div><p>If you are standing next to each other, yes, you can compare clocks at the same place and event. But once you are separated and moving relative to one another, the statement <strong>“what is happening over there right now?”</strong> no longer has one observer-independent answer.</p></div>
+<div class="now-grid"><div class="now-card accent"><b>Earth’s idea of “now”</b><p>Earth has a way of slicing distant events into “happening at the same time as me.”</p></div><div class="now-card purple"><b>The traveler’s idea of “now”</b><p>A moving traveler uses a different slice. Both are internally consistent. Neither is the universe’s master slice.</p></div></div>
+</section>
+
+<section class="section">
+<div class="section-head"><div class="eyebrow">02 · Watch “now” tilt</div><h2>Motion changes which distant events count as simultaneous.</h2><p class="lead">This is called <strong>relativity of simultaneity</strong>. It is inseparable from time dilation.</p></div>
+<div class="panel sim-panel">
+<div class="sim-top"><div class="control"><label for="simSpeed">Traveler speed <span id="simSpeedLabel">70% of light speed</span></label><input id="simSpeed" type="range" min="0" max="90" value="70" step="1"><div class="tiny">The blue horizontal line is Earth’s “now.” The purple line is the moving traveler’s “now.”</div></div><div class="sim-summary"><span>At this speed</span><b id="tiltSummary">their “now” lines disagree</b></div></div>
+<svg class="svgbox" id="simSvg" viewBox="0 0 820 390" aria-label="Spacetime simultaneity diagram">
+<line x1="90" y1="330" x2="750" y2="330" stroke="#45607e" stroke-width="2"/><line x1="90" y1="330" x2="90" y2="55" stroke="#45607e" stroke-width="2"/>
+<text x="755" y="336" fill="#a9b8d1" font-size="14">space →</text><text x="52" y="50" fill="#a9b8d1" font-size="14">time ↑</text>
+<line x1="90" y1="330" x2="90" y2="70" stroke="#7bddff" stroke-width="5"/><text x="104" y="88" fill="#7bddff" font-size="14" font-weight="800">Earth</text>
+<line id="travelerWorldline" x1="90" y1="330" x2="360" y2="70" stroke="#b9ffd0" stroke-width="5"/><text id="travelerLabel" x="370" y="82" fill="#b9ffd0" font-size="14" font-weight="800">Traveler</text>
+<circle cx="90" cy="225" r="8" fill="#7bddff"/><text x="104" y="217" fill="#f7f9ff" font-size="13">Earth event: “now”</text>
+<line x1="90" y1="225" x2="705" y2="225" stroke="#7bddff" stroke-width="3"/><text x="585" y="215" fill="#7bddff" font-size="13" font-weight="700">Earth’s simultaneous events</text>
+<line id="travelerNow" x1="90" y1="225" x2="705" y2="150" stroke="#c9b8ff" stroke-width="3"/><text id="travelerNowText" x="540" y="147" fill="#c9b8ff" font-size="13" font-weight="700">Traveler’s simultaneous events</text>
+<circle cx="650" cy="225" r="7" fill="#7bddff"/><circle id="purpleEvent" cx="650" cy="157" r="7" fill="#c9b8ff"/>
+<text x="515" y="362" fill="#a9b8d1" font-size="13">same distant location</text>
+</svg>
+<div class="caption" id="simCaption"><b>What this means:</b> Earth and the traveler can agree on all local physics while disagreeing about which distant event is happening “right now.” So the intuition that both people must share one universal present is already the part relativity removes.</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><div class="eyebrow">03 · Why does motion affect clock rates?</div><h2>Because everyone must measure light at the same speed.</h2><p class="lead">A light clock makes the logic visible. One tick is a flash traveling from one mirror to another.</p></div>
+<div class="panel clock-panel">
+<div class="clock-top"><div class="control"><label for="clockSpeed">Moving clock speed <span id="clockSpeedLabel">80% of light speed</span></label><input id="clockSpeed" type="range" min="0" max="90" value="80" step="1"><div class="tiny">Both flashes move at exactly c. The moving clock’s flash must travel farther.</div></div><div class="readout"><span>Moving tick takes</span><b id="clockFactor">1.67× as much Earth-time</b></div></div>
+<svg class="svgbox" id="clockSvg" viewBox="0 0 820 350" aria-label="Light clock diagram">
+<text x="95" y="34" fill="#f7f9ff" font-size="18" font-weight="800">Clock at rest</text><text x="480" y="34" fill="#f7f9ff" font-size="18" font-weight="800">Clock moving sideways</text>
+<rect x="150" y="88" width="120" height="7" rx="4" fill="#dfe8f7"/><rect x="150" y="248" width="120" height="7" rx="4" fill="#dfe8f7"/><line x1="210" y1="248" x2="210" y2="95" stroke="#7bddff" stroke-width="3" stroke-dasharray="7 7"/>
+<circle id="stillPhoton" cx="210" cy="248" r="9" fill="#ffd37d"/><text id="stillDone" x="210" y="295" text-anchor="middle" fill="#7bddff" font-size="14" font-weight="800">same speed c</text>
+<line x1="410" y1="62" x2="410" y2="315" stroke="#263858"/>
+<rect id="movingBottom" x="460" y="248" width="120" height="7" rx="4" fill="#dfe8f7"/><rect id="movingTop" x="600" y="88" width="120" height="7" rx="4" fill="#dfe8f7"/><line id="movingRay" x1="520" y1="248" x2="660" y2="95" stroke="#b9ffd0" stroke-width="3" stroke-dasharray="7 7"/><circle id="movingPhoton" cx="520" cy="248" r="9" fill="#ffd37d"/>
+<text x="590" y="295" text-anchor="middle" fill="#b9ffd0" font-size="14" font-weight="800">same speed c, longer path</text>
+</svg>
+<div class="caption" id="clockCaption">At <b>80% of light speed</b>, the moving mirror shifts sideways while the flash is in flight. The flash has to travel a longer diagonal distance. Since light cannot speed up to compensate, <b>more Earth-time must pass between the moving clock’s ticks.</b></div>
+<div class="chain"><div class="chain-item"><strong>Light speed stays c</strong><span>Motion does not let you add or subtract from c.</span></div><div class="chain-item"><strong>The clock moves sideways</strong><span>The mirror is no longer directly above where the flash started.</span></div><div class="chain-item"><strong>The light path is longer</strong><span>The flash travels diagonally.</span></div><div class="chain-item"><strong>The tick takes longer</strong><span>Same speed + more distance = more time in Earth’s frame.</span></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><div class="eyebrow">04 · Why does that change actual aging?</div><h2>Your body is made of clocks.</h2><p class="lead">The light clock is not magically slowing your body. It is exposing the geometry that <strong>every physical process</strong> has to obey.</p></div>
+<div class="process-grid">
+<div class="panel process"><h3>As measured from Earth</h3><p class="muted">If the traveler is moving at 80% of light speed, each of these runs at 60% of Earth’s rate.</p><div class="process-row"><div class="process-label">Atomic clock</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="num">Earth</div></div><div class="process-row"><div class="process-label">Traveler atom</div><div class="track"><div class="fill trav" style="width:60%"></div></div><div class="num">60%</div></div><div class="process-row"><div class="process-label">Heartbeat</div><div class="track"><div class="fill trav" style="width:60%"></div></div><div class="num">60%</div></div><div class="process-row"><div class="process-label">Chemistry</div><div class="track"><div class="fill trav" style="width:60%"></div></div><div class="num">60%</div></div><div class="process-row"><div class="process-label">Cell aging</div><div class="track"><div class="fill trav" style="width:60%"></div></div><div class="num">60%</div></div></div>
+<div class="panel card"><div class="eyebrow">Inside the spaceship</div><h3>Nothing feels slow.</h3><p class="muted">Your heart still feels normal. Your thoughts still feel normal. Your watch still ticks one second per second. That is because all of your local processes slow together relative to Earth’s frame. There is no external master clock inside you that says, “I should be moving faster.”</p><div class="callout"><b>Aging is accumulated physical change.</b> Less proper time between departure and reunion means fewer heartbeats, chemical reactions, cell processes, and atomic-clock ticks have occurred along that person’s path.</div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><div class="eyebrow">05 · The cleanest way to think about it</div><h2>You do not move “through one universal time.” You follow a path through spacetime.</h2><p class="lead">Two people can start at the same event, take different paths, and meet again. The amount of time measured <strong>along each path</strong> is called proper time.</p></div>
+<div class="panel reunion"><div class="reunion-grid">
+<svg class="svgbox" viewBox="0 0 520 430" aria-label="Earth and traveler worldlines between departure and reunion">
+<line x1="85" y1="360" x2="85" y2="65" stroke="#45607e" stroke-width="2"/><text x="48" y="57" fill="#a9b8d1" font-size="13">time ↑</text>
+<circle cx="145" cy="350" r="8" fill="#f7f9ff"/><text x="160" y="355" fill="#f7f9ff" font-size="13">depart together</text><circle cx="145" cy="80" r="8" fill="#f7f9ff"/><text x="160" y="84" fill="#f7f9ff" font-size="13">reunite</text>
+<line x1="145" y1="350" x2="145" y2="80" stroke="#7bddff" stroke-width="5"/><polyline points="145,350 350,215 145,80" fill="none" stroke="#b9ffd0" stroke-width="5"/>
+<g fill="#7bddff"><circle cx="145" cy="320" r="4"/><circle cx="145" cy="290" r="4"/><circle cx="145" cy="260" r="4"/><circle cx="145" cy="230" r="4"/><circle cx="145" cy="200" r="4"/><circle cx="145" cy="170" r="4"/><circle cx="145" cy="140" r="4"/><circle cx="145" cy="110" r="4"/></g>
+<g fill="#b9ffd0"><circle cx="183" cy="325" r="4"/><circle cx="228" cy="295" r="4"/><circle cx="274" cy="265" r="4"/><circle cx="319" cy="235" r="4"/><circle cx="316" cy="193" r="4"/><circle cx="266" cy="160" r="4"/><circle cx="216" cy="127" r="4"/><circle cx="169" cy="96" r="4"/></g>
+<text x="100" y="215" fill="#7bddff" font-size="14" font-weight="800">Earth path</text><text x="355" y="215" fill="#b9ffd0" font-size="14" font-weight="800">traveler path</text>
+</svg>
+<div><div class="callout"><b>Both people experience their own time normally.</b> Neither person senses “slow time.”</div><div class="callout"><b>The disagreement is about totals between shared events.</b> Departure and reunion are the same events for both. The amount of proper time accumulated between them can differ.</div><div class="callout"><b>This is objective at reunion.</b> Put the clocks side by side again and they can literally show different readings.</div></div>
+</div></div>
+</section>
+
+<section class="section faq">
+<div class="section-head"><div class="eyebrow">06 · The objections that matter</div><h2>What still feels impossible?</h2></div>
+<details open><summary>So whose time is the “correct” time?</summary><p>Neither clock is wrong. Each clock measures its own proper time. Physics does not provide a hidden universal clock whose reading is more real.</p></details>
+<details><summary>If the traveler sees Earth moving too, shouldn’t Earth age less instead?</summary><p>During each steady-motion leg, each inertial observer can describe the other clock as running slow. The full round trip is different because the traveler turns around and changes inertial frames. That changes which distant Earth events the traveler calls simultaneous. When they reunite, both agree on the actual clock readings.</p></details>
+<details><summary>Is the acceleration what physically causes the age difference?</summary><p>No. Acceleration is important because it breaks the symmetry of the round trip and changes frames, but most of the difference can accumulate while the traveler is coasting at constant high speed.</p></details>
+<details><summary>Is this just what they SEE because light takes time to travel?</summary><p>No. Visual delay is a separate effect. After correcting for signal travel time, relativistic time dilation remains. The reunion comparison does not depend on seeing a delayed image.</p></details>
+<details><summary>Why don’t we notice this every day?</summary><p>At ordinary speeds, the effect is incredibly tiny. It becomes large only when relative speed is a substantial fraction of the speed of light.</p></details>
+</section>
+
+<section class="section"><div class="panel card"><div class="eyebrow">Optional math</div><h3>The quantity your own clock measures</h3><div class="equation">dτ = dt × √(1 − v²/c²)</div><p class="muted" style="margin-top:12px">τ is proper time, the time measured by the clock traveling along that path. This equation is not the explanation by itself; it is the mathematical summary of the spacetime geometry shown above.</p></div></section>
+<div class="footer">The key mental shift: there is no universal clock and no universal present. There are clocks following paths through spacetime.</div>
+</div>
+<script>
+const simSpeed=document.getElementById('simSpeed'),simSpeedLabel=document.getElementById('simSpeedLabel'),travelerWorldline=document.getElementById('travelerWorldline'),travelerLabel=document.getElementById('travelerLabel'),travelerNow=document.getElementById('travelerNow'),travelerNowText=document.getElementById('travelerNowText'),purpleEvent=document.getElementById('purpleEvent');
+function updateSim(){const p=+simSpeed.value,b=p/100;simSpeedLabel.textContent=p+'% of light speed';const wx=90+300*b;travelerWorldline.setAttribute('x2',wx);travelerLabel.setAttribute('x',wx+10);const dy=95*b;travelerNow.setAttribute('y2',225-dy);travelerNowText.setAttribute('y',220-dy);purpleEvent.setAttribute('cy',225-dy*560/615);document.getElementById('tiltSummary').textContent=p<5?'their “now” lines nearly match':'their “now” lines disagree';}
+simSpeed.addEventListener('input',updateSim);updateSim();
+
+const clockSpeed=document.getElementById('clockSpeed'),clockSpeedLabel=document.getElementById('clockSpeedLabel'),clockFactor=document.getElementById('clockFactor'),clockCaption=document.getElementById('clockCaption'),movingTop=document.getElementById('movingTop'),movingRay=document.getElementById('movingRay'),movingPhoton=document.getElementById('movingPhoton'),stillPhoton=document.getElementById('stillPhoton');let animStart=performance.now();
+function gammaFor(p){const b=p/100;return 1/Math.sqrt(1-b*b)}
+function updateClockGeometry(){const p=+clockSpeed.value,g=gammaFor(p),shift=175*(p/90);clockSpeedLabel.textContent=p+'% of light speed';clockFactor.textContent=g.toFixed(2)+'× as much Earth-time';movingTop.setAttribute('x',460+shift);movingRay.setAttribute('x2',520+shift);clockCaption.innerHTML='At <b>'+p+'% of light speed</b>, the moving mirror shifts sideways while the flash is in flight. The flash follows a longer diagonal path. Since light cannot speed up to compensate, <b>one tick takes '+g.toFixed(2)+'× as much Earth-time.</b>';}
+function animateClock(t){const p=+clockSpeed.value,g=gammaFor(p),base=1700;const a=((t-animStart)% (base*g))/(base*g),s=Math.min(1,a*g),stillY=248-(153*Math.min(1,a*g)),shift=175*(p/90),moveY=248-153*a,moveX=520+shift*a;stillPhoton.setAttribute('cy',stillY);movingPhoton.setAttribute('cy',moveY);movingPhoton.setAttribute('cx',moveX);requestAnimationFrame(animateClock)}
+clockSpeed.addEventListener('input',()=>{animStart=performance.now();updateClockGeometry()});updateClockGeometry();requestAnimationFrame(animateClock);
+</script>
+</body>
+</html>
